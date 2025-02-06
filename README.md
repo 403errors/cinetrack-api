@@ -38,8 +38,8 @@
 
 1. Clone the repository:
     ```bash
-    git clone lorem
-    cd --
+    git clone https://github.com/403errors/cinetrack-api.git
+    cd cinetrack-api
     ```
 
 2. Install dependencies:
