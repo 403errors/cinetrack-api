@@ -14,8 +14,6 @@
 - [API Endpoints](#api-endpoints)
 - [File Structure](#file-structure)
 - [License](#license)
-- [Contributing](#contributing)
-- [Contact](#contact)
 
 ## Features
 
