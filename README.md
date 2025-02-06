@@ -2,7 +2,7 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-**CineTrack API** is a RESTful API for managing movies, user watchlists, and reviews. It supports CRUD operations for movies and allows users to create and manage their watchlists and reviews.
+**CineTrack API** is a personal watchlist API for movies, TV series, books, anime, and more. It allows users to track their favorite entertainment items, write reviews, and manage their watchlists.It supports CRUD operations for movies and allows users to create and manage their watchlists and reviews.
 
 ## Table of Contents
 
@@ -12,6 +12,7 @@
 - [Environment Variables](#environment-variables)
 - [Usage](#usage)
 - [API Endpoints](#api-endpoints)
+- [File Structure](#file-structure)
 - [License](#license)
 - [Contributing](#contributing)
 - [Contact](#contact)
@@ -23,6 +24,9 @@
 - User-specific watchlists
 - User-specific reviews
 - Secure handling of user passwords and JWT tokens
+- Track favorite entertainment items (movies, TV series, books, anime, etc.)
+- Write reviews
+- Manage watchlists
 
 ## Technologies
 
@@ -33,6 +37,20 @@
 - JWT for authentication
 - bcrypt for password hashing
 - dotenv for environment variables
+
+## NPM Packages
+
+- bcrypt: For password hashing.
+- dotenv: For loading environment variables.
+- express: Web application framework.
+- express-mongo-sanitize: For sanitizing user input to prevent MongoDB injection attacks.
+- express-rate-limit: For limiting the number of requests to the API.
+- helmet: For securing Express apps by setting various HTTP headers.
+- hpp: For protecting against HTTP Parameter Pollution attacks.
+- jsonwebtoken: For creating and verifying JSON Web Tokens for authentication.
+- mongoose: MongoDB object modeling tool.
+- morgan: HTTP request logger middleware for Node.js.
+- validator: For validating user input.
 
 ## Installation
 
@@ -112,6 +130,37 @@
 - **GET /api/v1/reviews/:id**: Get a specific review by ID
 - **PATCH /api/v1/reviews/:id**: Update a specific review by ID
 - **DELETE /api/v1/reviews/:id**: Delete a specific review by ID
+
+## File Structure
+
+- `app.js` and `server.js`: Main entry points of the application.
+- `controllers/`: Contains the controllers that handle the application's logic.
+    - `authController.js`: Handles authentication-related logic.
+    - `entertainmentController.js`: Handles logic related to entertainment items.
+    - `errorController.js`: Handles error handling.
+    - `handlerFactory.js`: Factory function for creating generic handlers.
+    - `reviewController.js`: Handles logic related to reviews.
+    - `userController.js`: Handles logic related to users.
+    - `watchlistController.js`: Handles logic related to watchlists.
+- `models/`: Contains the Mongoose models for the application's data.
+    - `entertainmentModel.js`: Defines the schema for entertainment items.
+    - `reviewModel.js`: Defines the schema for reviews.
+    - `userModel.js`: Defines the schema for users.
+    - `watchlistModel.js`: Defines the schema for watchlists.
+- `routes/`: Contains the routes for the application's API.
+    - `entertainmentRoutes.js`: Defines the routes for entertainment items.
+    - `reviewRoutes.js`: Defines the routes for reviews.
+    - `userRoutes.js`: Defines the routes for users.
+    - `watchlistRoutes.js`: Defines the routes for watchlists.
+- `utils/`: Contains utility functions.
+    - `apiFeatures.js`: Utility functions for API features like filtering, sorting, and pagination.
+    - `appError.js`: Custom error class for the application.
+    - `catchAsync.js`: Utility function for catching errors in asynchronous functions.
+- `dev-data/`: Contains development data.
+    - `entertainment.json`: Sample entertainment data.
+    - `import-dev-data.js`: Script for importing development data into the database.
+    - `reviews.json`: Sample review data.
+    - `users.json`: Sample user data.
 
 ## License
 
