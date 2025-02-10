@@ -28,6 +28,6 @@ const watchlistSchema = new mongoose.Schema({
 // Create a unique index for combinations of user and entertainment
 watchlistSchema.index({ user: 1, entertainment: 1 }, { unique: true });
 
-const Watchlist = mongoose.model('Watchlist', watchlistSchema);
+const Watchlist = mongoose.models.Watchlist || mongoose.model('Watchlist', watchlistSchema);
 
 export default Watchlist;

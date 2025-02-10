@@ -99,6 +99,7 @@ entertainmentSchema.pre('save', function(next) {
   next();
 });
 
-const Entertainment = mongoose.model('Entertainment', entertainmentSchema);
+// initialise the model if not in DB
+const Entertainment = mongoose.models.Entertainment || mongoose.model('Entertainment', entertainmentSchema);
 
 export default Entertainment;

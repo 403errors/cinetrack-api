@@ -1,5 +1,5 @@
 {
-  "name": "entertainment-api",
+  "name": "cinetrack-api",
   "version": "1.0.0",
   "description": "Personal Watchlist for movies/tv-series/books/anime...",
   "main": "app.js",
@@ -9,7 +9,7 @@
     "start:dev": "nodemon server.js",
     "start:prod": "NODE_ENV=production nodemon server.js"
   },
-  "author": "Sheikh Abdul Nishar",
+  "author": "Sameer Verma",
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^5.1.1",
@@ -17,11 +17,12 @@
     "express": "^4.18.2",
     "express-mongo-sanitize": "^2.2.0",
     "express-rate-limit": "^7.1.5",
-    "helmet": "^7.1.0",
+    "helmet": "^8.0.0",
     "hpp": "^0.2.3",
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.0.3",
     "morgan": "^1.10.0",
+    "nodemon": "^3.1.9",
     "validator": "^13.11.0"
   }
 }

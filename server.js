@@ -4,6 +4,9 @@
 
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
+dotenv.config();
+
+const DB = process.env.DATABASE.replace('<db_password>', process.env.DATABASE_PASSWORD);
 
 /**
  * Handle uncaught exceptions globally.
@@ -15,19 +18,7 @@ process.on('uncaughtException', (err) => {
   process.exit(1);
 });
 
-// Load environment variables from the config file
-dotenv.config({ path: './config.env' });
-
-/**
- * Replace placeholder with the actual database password and connect to MongoDB.
- * Exits the process if there's a connection error.
- */
-const DB = process.env.DATABASE.replace('<PASSWORD>', process.env.DATABASE_PASSWORD);
-
-mongoose.connect(DB, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-}).then(() => {
+mongoose.connect(DB).then(() => {
   console.log('DB connection established...');
 }).catch(err => {
   console.error('DB connection error:', err.message);
@@ -36,10 +27,6 @@ mongoose.connect(DB, {
 
 import app from './app.js';
 
-/**
- * Set the port for the server, default to 3000 if not specified.
- * Starts the server and logs the port it is listening on.
- */
 const port = process.env.PORT || 3000;
 
 const server = app.listen(port, () => {

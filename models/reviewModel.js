@@ -40,6 +40,6 @@ const reviewSchema = new mongoose.Schema({
 // Create a unique index for combinations of entertainment and user to prevent duplicate reviews
 reviewSchema.index({ entertainment: 1, user: 1 }, { unique: true });
 
-const Review = mongoose.model('Review', reviewSchema);
+const Review = mongoose.models.Review || mongoose.model('Review', reviewSchema);
 
 export default Review;
